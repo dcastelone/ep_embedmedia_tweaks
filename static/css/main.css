@@ -1,0 +1,39 @@
+#embedMediaModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  right: auto; /* override default right alignment from .popup */
+  padding: 20px;
+}
+
+.embedMediaButton {
+  padding:10px;
+  background: var(--soft-bg-color);
+  color: var(--text-color);
+}
+
+#cancelEmbedMedia{
+  color:red;
+}
+
+#insertEmbedMedia {
+  font-family:font-awesome;
+}
+
+.buttonicon-embed-media:before {
+  content: "\e83b"; /* fontawesome-etherpad video icon */
+  font-family: "fontawesome-etherpad";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  color: #666;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  vertical-align: middle;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
