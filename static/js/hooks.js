@@ -78,32 +78,36 @@ exports.sanitize = (inputHtml) => {
     
     // Look for any remaining iframe elements
     const $iframe = $container.find('iframe').first();
-    
+
     // If we found an iframe, check if it has an allowed src
     if ($iframe.length > 0) {
       const src = $iframe.attr('src');
       if (src) {
-        // const srcLower = src.toLowerCase();
-        // const allowedDomains = [
-        //   'youtube.com', 
-        //   'www.youtube.com', 
-        //   'youtube-nocookie.com', 
-        //   'www.youtube-nocookie.com',
-        //   'youtu.be', 
-        //   'vimeo.com', 
-        //   'player.vimeo.com'
-        // ];
-        
-        // Check if the src URL contains any of the allowed domains
-        // const isAllowedDomain = allowedDomains.some(domain => srcLower.indexOf(domain) !== -1);
-        
-        // if (isAllowedDomain) {
-          // Return only this element as HTML
-        return $('<div>').append($iframe.clone()).html();
-        // }
+        try {
+          const urlObj = new URL(src, window.location.href);
+          const protocol = urlObj.protocol.replace(':', '');
+          const host = urlObj.hostname.toLowerCase();
+          const allowedSchemes = ['http', 'https'];
+
+          // Validate scheme (HTTP or HTTPS). Any domain is accepted to support diverse providers.
+          if (allowedSchemes.includes(protocol)) {
+            // Strip potentially dangerous attributes
+            $iframe.removeAttr('srcdoc').removeAttr('onload').removeAttr('onerror');
+
+            // Add a conservative sandbox if one is not present already
+            if (!$iframe.attr('sandbox')) {
+              $iframe.attr('sandbox', 'allow-same-origin allow-scripts allow-popups allow-presentation');
+            }
+
+            // Return sanitized iframe HTML only
+            return $('<div>').append($iframe.clone()).html();
+          }
+        } catch (err) {
+          console.warn('Error while validating iframe src', err);
+        }
       }
     }
-    
+
     // If we get here, either there was no iframe or it had an invalid src
     console.warn('No valid iframe found in embed code');
     return '';

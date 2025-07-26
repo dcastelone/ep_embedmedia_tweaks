@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  right: auto; /* override default right alignment from .popup */
+  right: auto; /* override right alignment from .popup */
   padding: 20px;
 }
 

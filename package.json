@@ -1,16 +1,25 @@
 {
-  "name": "ep_embedmedia",
-  "description": "Embed media (youtube, vimeo etc)",
-  "version": "0.0.64",
-  "author": "RedHog (Egil Moeller) <egil.moller@freecode.no>",
+  "name": "ep_embedmedia_tweaks",
+  "description": "Fork of ep_embedmedia with stricter sanitization and additional UI/UX improvements for Etherpad.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "DCastelone",
   "contributors": [
+    "RedHog (Egil Moeller) <egil.moller@freecode.no>",
     "johnyma22 (John McLear) <john@mclear.co.uk>"
   ],
-  "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnMcLear/ep_embedmedia.git"
+    "url": "https://github.com/dcastelone/ep_embedmedia_tweaks.git"
   },
+  "keywords": [
+    "etherpad",
+    "plugin",
+    "embed",
+    "media",
+    "youtube",
+    "vimeo"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
@@ -26,5 +35,12 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/DCastelone/ep_embedmedia_tweaks/issues"
+  },
+  "homepage": "https://github.com/DCastelone/ep_embedmedia_tweaks#readme"
 }
