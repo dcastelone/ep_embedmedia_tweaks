@@ -24,14 +24,12 @@ Or install via the admin menu
 
 Insert iframe embeds from the toolbar video icon.
 
-• Direct URL paste is supported **only** for YouTube and Vimeo (they are converted to privacy-enhanced embeds).
-• For any other provider, paste the full `<iframe>` embed code – any HTTP/HTTPS domain is allowed and sanitized (scripts stripped, sandbox applied).
+• Direct URL paste is supported only for YouTube and Vimeo (converted to privacy-enhanced embeds).
+• For any other provider, paste the full `<iframe>` embed code – any HTTP/HTTPS domain is allowed and sanitized is attempted (scripts stripped, sandbox applied).
 
-YouTube links are automatically redirected to the `youtube-nocookie.com` domain for better privacy.
+YouTube links are automatically redirected to the `youtube-nocookie.com` domain.
 
 ## Contributing
-
-Issues and PRs are welcome! Please open them on the GitHub repository listed in `package.json`.
 
 ---
 This project contains code derived from Google Caja's HTML sanitizer (Apache-2.0).

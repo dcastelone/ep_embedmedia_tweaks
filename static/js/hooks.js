@@ -1,7 +1,7 @@
 'use strict';
 
 exports.aceInitInnerdocbodyHead = (hookName, args, cb) => {
-  const url = '../static/plugins/ep_embedmedia/static/css/ace.css';
+  const url = '../static/plugins/ep_embedmedia_tweaks/static/css/ace.css';
   args.iframeHTML.push(`<link rel="stylesheet" type="text/css" href="${url}"/>`);
   cb();
 };
@@ -286,7 +286,7 @@ exports.collectContentPre = (hook, context) => {
     try {
       context.cc.doAttrib(context.state, `embedMedia::${value}`);
     } catch (e) {
-      console.error('[ep_embedmedia collectContentPre] Error applying embedMedia attribute:', e);
+      console.error('[ep_embedmedia_tweaks collectContentPre] Error applying embedMedia attribute:', e);
     }
   }
 };

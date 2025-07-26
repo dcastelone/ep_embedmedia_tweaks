@@ -1,7 +1,7 @@
 {
   "name": "ep_embedmedia_tweaks",
   "description": "Fork of ep_embedmedia with stricter sanitization and additional UI/UX improvements for Etherpad.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "author": "DCastelone",
   "contributors": [
